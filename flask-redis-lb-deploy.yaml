@@ -1,0 +1,88 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    run: counter
+  name: counter
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      run: counter
+  template:
+    metadata:
+      labels:
+        run: counter
+    spec:
+      containers:
+      - image: wjloh91/flask-redis:1.2
+        name: counter
+        env:
+        - name: REDIS_SERVICE
+          value: "redis"
+        - name: POD_NAME
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.name
+        ports:
+        - containerPort: 8000
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    run: counter
+  name: counter-service
+spec:
+  ports:
+  - port: 8000
+    protocol: TCP
+    targetPort: 8000
+  selector:
+    run: counter
+  type: LoadBalancer
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: redis-master
+spec:
+  replicas: 1
+  selector:
+     matchLabels:
+       app: redis
+       role: master
+       tier: backend
+  template:
+    metadata:
+      labels:
+        app: redis
+        role: master
+        tier: backend
+    spec:
+      containers:
+      - name: master
+        image: redis  # or just image: redis
+        ports:
+        - containerPort: 6379
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: redis
+  labels:
+    app: redis
+    role: master
+    tier: backend
+spec:
+  type: ClusterIP
+  ports:
+  - port: 6379
+  selector:
+    app: redis
+    role: master
+    tier: backend
+---

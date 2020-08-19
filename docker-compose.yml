@@ -1,0 +1,10 @@
+version: '3'
+services:
+  web:
+    image: wjloh91/flask-redis:1.0
+    ports:
+      - "8000:8000"
+    environment:
+      - REDIS_SERVICE=redis
+  redis:
+    image: "redis:alpine"
