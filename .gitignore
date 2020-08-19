@@ -1,14 +1,17 @@
 **/.DS_Store
 .idea
 
-# Byte-compiled / optimized / DLL files
+venv/
+
+*.pyc
 __pycache__/
 
-# Environments
-.env
-.venv
-env/
-venv/
-ENV/
-env.bak/
-venv.bak/
+instance/
+
+.pytest_cache/
+.coverage
+htmlcov/
+
+dist/
+build/
+*.egg-info/

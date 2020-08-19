@@ -5,10 +5,10 @@
     <title>Title</title>
 </head>
 <body>
-    <p> The number of visitors is : {{ counter }}</p>
+    <p> The number of visitors is : <span id="counter">{{ counter }}</span></p>
 
     {% if pod is not none %}
-    <p> Currently serving from pod: {{pod}} </p>
+    <p> Currently serving from pod: <span id="pod_name">{{pod}}</span></p>
     {% endif %}
 </body>
 </html>

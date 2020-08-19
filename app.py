@@ -7,23 +7,24 @@ app = Flask(__name__)
 
 redis_host = os.environ['REDIS_SERVICE']
 
-counter = Redis(host=redis_host, port=6379)
+redis = Redis(host=redis_host, port=6379)
 
 
 def get_hit_count():
     retries = 5
     while True:
         try:
-            return counter.incr('hits')
+            return redis.incr('hits')
         except Redis.exceptions.ConnectionError as exc:
             if retries == 0:
                 raise exc
             retries -= 1
             time.sleep(0.5)
 
+
 @app.route('/test')
 def test():
-    return "Flask Web Server is up"
+    return "Flask Web Server is Up!"
 
 
 @app.route('/')
