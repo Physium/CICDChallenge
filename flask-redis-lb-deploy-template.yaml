@@ -15,7 +15,7 @@ spec:
         run: counter
     spec:
       containers:
-      - image: wjloh91/flask-redis:{{IMAGE_TAG}}
+      - image: wjloh91/jenkins-flask-redis:{{IMAGE_TAG}}
         name: counter
         env:
         - name: REDIS_SERVICE
