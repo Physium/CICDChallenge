@@ -19,6 +19,10 @@ def get_hit_count():
             retries -= 1
             time.sleep(0.5)
 
+@app.route('/feature')
+def feature():
+    return "Feature is up"
+
 
 @app.route('/test')
 def test():
