@@ -1,10 +1,9 @@
 import os
 import unittest
 import fakeredis
+import app
 
 from bs4 import BeautifulSoup
-#from app import app
-import app
 
 
 class BasicTests(unittest.TestCase):
