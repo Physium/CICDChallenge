@@ -48,9 +48,10 @@ pipeline {
         }
 
 
-        stage('get pod') {
+        stage('Deploy Applications on EKS') {
             steps {
                  sh "cat flask-redis-lb-deploy-template.yaml | sed \"s/{{IMAGE_TAG}}/$BUILD_NUMBER/g\" | kubectl apply -f -"
+                 sh "kubectl get services -o=jsonpath="{.items[?(@.metadata.name=='counter-service')].status.loadBalancer.ingress[*].hostname}"
             }
         }
     }
