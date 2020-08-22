@@ -9,7 +9,7 @@ pipeline {
     stages {
         stage('Cloning Git') {
             steps {
-                git branch: 'master', url: 'https://github.com/Physium/CICDChallenge.git'
+                git branch: 'develop', url: 'https://github.com/Physium/CICDChallenge.git'
             }
         }
 
