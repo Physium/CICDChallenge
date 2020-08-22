@@ -22,7 +22,7 @@ def get_hit_count():
 
 @app.route('/feature')
 def feature():
-    return "Feature is up, testing 2nd branch"
+    return "Feature is up, testing 2nd branch. Change to test Jenkin PR Builder."
 
 
 @app.route('/test')
