@@ -22,7 +22,7 @@ def get_hit_count():
 
 @app.route('/feature')
 def feature():
-    return "Feature is up. Testing Multi-Pipeline."
+    return "Feature is up. Testing Multi-Pipeline Again."
 
 
 @app.route('/test')
