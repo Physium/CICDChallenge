@@ -51,6 +51,7 @@ pipeline {
             steps {
                 sh "kubectl config set-context --current --namespace=development"
                 sh "cat flask-redis-lb-deploy-template.yaml | sed \"s/{{IMAGE_TAG}}/$BUILD_NUMBER/g\" | kubectl apply -f -"
+                sh "sleep 10"
                 sh "kubectl get services -o=jsonpath=\"{.items[?(@.metadata.name=='counter-service')].status.loadBalancer.ingress[*].hostname}\""
             }
         }
