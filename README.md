@@ -5,7 +5,7 @@ To showcase a CI/CD application pipeline deployment.
 
 Application in this project is a flask-based application utilizing redis cache to store the number of user's visits.
 
-Reference: (https://morioh.com/p/1e80d49f8d3e)[https://morioh.com/p/1e80d49f8d3e]
+Reference: [https://morioh.com/p/1e80d49f8d3e](https://morioh.com/p/1e80d49f8d3e)
 
 ### Application Diagram
 ![Application Diagram](Diagrams/ApplicationDiagram.jpg)
@@ -35,7 +35,14 @@ This is a high level diagram of the pipelines as mentioned above showcasing the 
 ## Cloud Infrastructure
 Applications are deployed on Amazon EKS.
 
-Disclaimer: I not design on my own AWS environment. Environment is heavily reference from the folloowing blog post: [https://logz.io/blog/amazon-eks-cluster/](https://logz.io/blog/amazon-eks-cluster/)
+The following environment is reference off Amazon EKS getting started guide as the bare minimum requirement to bootstrap an EKS. For this demo purposes, I decided to go with "only public subnets" for simplicity sake.
+
+![Cloud Infrastrcuture](Diagrams/CloudInfrastructure.jpg)
+
+Disclaimer: I not design on my own AWS environment. Environment is heavily reference from the following:
+* [https://aws.amazon.com/blogs/containers/de-mystifying-cluster-networking-for-amazon-eks-worker-nodes/](https://aws.amazon.com/blogs/containers/de-mystifying-cluster-networking-for-amazon-eks-worker-nodes/)
+* [https://docs.aws.amazon.com/eks/latest/userguide/getting-started-console.html#eks-create-cluster](https://docs.aws.amazon.com/eks/latest/userguide/getting-started-console.html#eks-create-cluster)
+* [https://logz.io/blog/amazon-eks-cluster/](https://logz.io/blog/amazon-eks-cluster/)
 
 ## Future Works
 * Use Jenkins X for better integration with Kubernetes
