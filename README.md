@@ -7,6 +7,9 @@ Application in this project is a flask-based application utilizing redis cache t
 
 Reference: https://morioh.com/p/1e80d49f8d3e
 
+### Application Diagram
+![Application Diagram](ApplicationDiagram.jpg)
+
 ## Pipeline
 git push -> activate jenkins development pipeline
 
@@ -21,7 +24,10 @@ There are 2 main pipelines:
 ### Development Jenkins Pipeline
 git clone -> build docker image -> test application -> push docker image to dockerhub -> deploy application to EKS
 ### Production Jenkins Pipeline
-git clone -> build docker image -> test application 
+git clone -> build docker image -> test application
+
+### CICD Pipeline Diagram
+![CICD Pipeline Plan](CICDPipelinePlan.jpg)
 
 ## Cloud Infrastructure
 Application is deployed on Amazon EKS.
